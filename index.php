@@ -147,8 +147,8 @@
 									<select name="slLoaiSP" id="slLoaiSP" class="input-select">
 										<option value='0'>Danh Mục Sản Phẩm</option>
 										<?php 
-										$SelectLSP = mysqli_query($Connect,"SELECT * FROM loaisanpham");
-										while ($RowSelectLSP = mysqli_fetch_array($SelectLSP))
+										$SelectLSP = pg_query($Connect,"SELECT * FROM loaisanpham");
+										while ($RowSelectLSP = pg_fetch_array($SelectLSP))
 										{
 											?>
 											<option value="<?php echo $RowSelectLSP['LSP_Ma']; ?>"><?php echo $RowSelectLSP['LSP_Ten']; ?></option>
@@ -297,8 +297,8 @@
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="index.php">Home</a></li>
 						<?php 
-						$Menu = mysqli_query($Connect,"SELECT LSP_Ten,LSP_Ma FROM loaisanpham");
-						while ($RowMenu = mysqli_fetch_array($Menu))
+						$Menu = pg_query($Connect,"SELECT LSP_Ten,LSP_Ma FROM loaisanpham");
+						while ($RowMenu = pg_fetch_array($Menu))
 						{
 							?>
 							<li><a href="?ID=<?php if($RowMenu['LSP_Ma'] == 1){ echo 'Laptop'; } else if($RowMenu['LSP_Ma'] == 2){ echo 'Mayanh'; } else echo 'Dienthoai'; ?>"><?php echo $RowMenu['LSP_Ten']; ?></a></li>
@@ -446,8 +446,8 @@
 								<h3 class="footer-title">PHÂN LOẠI</h3>
 								<ul class="footer-links">
 									<?php 
-									$SelectLSP = mysqli_query($Connect,"SELECT * FROM loaisanpham");
-									while ($RowSelectLSP = mysqli_fetch_array($SelectLSP))
+									$SelectLSP = pg_query($Connect,"SELECT * FROM loaisanpham");
+									while ($RowSelectLSP = pg_fetch_array($SelectLSP))
 									{
 										?>
 										<li><a href="?ID=<?php if($RowSelectLSP['LSP_Ma'] == 1)
