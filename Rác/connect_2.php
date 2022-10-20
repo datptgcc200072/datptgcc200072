@@ -1,5 +1,5 @@
 <?php
-	$Connect = mysqli_connect("localhost","root","","salomon") or die("Lỗi".mysqli_error($Connect));
-	mysqli_query($Connect,'SET NAMES "utf8"');
-	//mysqli_close($Connect);
+	$Connect = pg_connect("localhost","root","","salomon") or die("Lỗi".pg_error($Connect));
+	pg_query($Connect,'SET NAMES "utf8"');
+	//pg_close($Connect);
 ?>
